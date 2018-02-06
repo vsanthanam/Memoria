@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		073A6C16202A45E400BA2597 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C15202A45E400BA2597 /* AppDelegate.m */; };
-		073A6C19202A45E400BA2597 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C18202A45E400BA2597 /* ViewController.m */; };
 		073A6C1B202A45E400BA2597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073A6C1A202A45E400BA2597 /* Assets.xcassets */; };
 		073A6C1E202A45E400BA2597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073A6C1C202A45E400BA2597 /* Main.storyboard */; };
 		073A6C21202A45E400BA2597 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C20202A45E400BA2597 /* main.m */; };
 		073A6C2C202A45E400BA2597 /* MemoriaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C2B202A45E400BA2597 /* MemoriaTests.m */; };
 		073A6C37202A45E400BA2597 /* MemoriaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C36202A45E400BA2597 /* MemoriaUITests.m */; };
+		073A6C4A202A478E00BA2597 /* MemoriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C48202A478E00BA2597 /* MemoriaViewController.m */; };
+		073A6C51202A546300BA2597 /* MemoryInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C50202A546300BA2597 /* MemoryInfoManager.m */; };
+		073A6C54202A561B00BA2597 /* MemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C53202A561B00BA2597 /* MemoryInfo.m */; };
+		073A6C56202A65B200BA2597 /* memtest in Resources */ = {isa = PBXBuildFile; fileRef = 073A6C55202A65B200BA2597 /* memtest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +40,6 @@
 		073A6C11202A45E400BA2597 /* Memoria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memoria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		073A6C14202A45E400BA2597 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		073A6C15202A45E400BA2597 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		073A6C17202A45E400BA2597 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		073A6C18202A45E400BA2597 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		073A6C1A202A45E400BA2597 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		073A6C1D202A45E400BA2597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		073A6C1F202A45E400BA2597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +51,13 @@
 		073A6C32202A45E400BA2597 /* MemoriaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoriaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		073A6C36202A45E400BA2597 /* MemoriaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoriaUITests.m; sourceTree = "<group>"; };
 		073A6C38202A45E400BA2597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		073A6C47202A478E00BA2597 /* MemoriaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoriaViewController.h; sourceTree = "<group>"; };
+		073A6C48202A478E00BA2597 /* MemoriaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoriaViewController.m; sourceTree = "<group>"; };
+		073A6C4F202A546300BA2597 /* MemoryInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryInfoManager.h; sourceTree = "<group>"; };
+		073A6C50202A546300BA2597 /* MemoryInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryInfoManager.m; sourceTree = "<group>"; };
+		073A6C52202A561B00BA2597 /* MemoryInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryInfo.h; sourceTree = "<group>"; };
+		073A6C53202A561B00BA2597 /* MemoryInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryInfo.m; sourceTree = "<group>"; };
+		073A6C55202A65B200BA2597 /* memtest */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = memtest; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,15 +108,20 @@
 		073A6C13202A45E400BA2597 /* Memoria */ = {
 			isa = PBXGroup;
 			children = (
+				073A6C55202A65B200BA2597 /* memtest */,
 				073A6C14202A45E400BA2597 /* AppDelegate.h */,
 				073A6C15202A45E400BA2597 /* AppDelegate.m */,
-				073A6C17202A45E400BA2597 /* ViewController.h */,
-				073A6C18202A45E400BA2597 /* ViewController.m */,
+				073A6C47202A478E00BA2597 /* MemoriaViewController.h */,
+				073A6C48202A478E00BA2597 /* MemoriaViewController.m */,
 				073A6C1A202A45E400BA2597 /* Assets.xcassets */,
 				073A6C1C202A45E400BA2597 /* Main.storyboard */,
 				073A6C1F202A45E400BA2597 /* Info.plist */,
 				073A6C20202A45E400BA2597 /* main.m */,
 				073A6C22202A45E400BA2597 /* Memoria.entitlements */,
+				073A6C4F202A546300BA2597 /* MemoryInfoManager.h */,
+				073A6C50202A546300BA2597 /* MemoryInfoManager.m */,
+				073A6C52202A561B00BA2597 /* MemoryInfo.h */,
+				073A6C53202A561B00BA2597 /* MemoryInfo.m */,
 			);
 			path = Memoria;
 			sourceTree = "<group>";
@@ -237,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073A6C56202A65B200BA2597 /* memtest in Resources */,
 				073A6C1B202A45E400BA2597 /* Assets.xcassets in Resources */,
 				073A6C1E202A45E400BA2597 /* Main.storyboard in Resources */,
 			);
@@ -263,9 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				073A6C19202A45E400BA2597 /* ViewController.m in Sources */,
+				073A6C54202A561B00BA2597 /* MemoryInfo.m in Sources */,
+				073A6C51202A546300BA2597 /* MemoryInfoManager.m in Sources */,
 				073A6C21202A45E400BA2597 /* main.m in Sources */,
 				073A6C16202A45E400BA2597 /* AppDelegate.m in Sources */,
+				073A6C4A202A478E00BA2597 /* MemoriaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

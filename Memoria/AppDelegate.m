@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+//#import "MemoryInfoManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,6 +18,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    
 }
 
 
