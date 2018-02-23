@@ -7,7 +7,10 @@
 //
 
 @import Cocoa;
+@import IOKit;
 
-@interface MemoriaViewController : NSViewController
+#import "MemoriaTask.h"
+
+@interface MemoriaViewController : NSViewController<MemoriaTaskDelegate>
 
 @end
