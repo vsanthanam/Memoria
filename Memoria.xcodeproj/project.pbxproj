@@ -18,6 +18,7 @@
 		073A6C54202A561B00BA2597 /* MemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C53202A561B00BA2597 /* MemoryInfo.m */; };
 		073A6C56202A65B200BA2597 /* memtest in Resources */ = {isa = PBXBuildFile; fileRef = 073A6C55202A65B200BA2597 /* memtest */; };
 		07F5DE1B2040928200EE7B3F /* MemoriaTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F5DE1A2040928200EE7B3F /* MemoriaTask.m */; };
+		07F5DE1E204098B700EE7B3F /* memoria_log.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F5DE1D204098B700EE7B3F /* memoria_log.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		073A6C55202A65B200BA2597 /* memtest */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = memtest; sourceTree = "<group>"; };
 		07F5DE192040928200EE7B3F /* MemoriaTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoriaTask.h; sourceTree = "<group>"; };
 		07F5DE1A2040928200EE7B3F /* MemoriaTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoriaTask.m; sourceTree = "<group>"; };
+		07F5DE1C204098A900EE7B3F /* memoria_log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memoria_log.h; sourceTree = "<group>"; };
+		07F5DE1D204098B700EE7B3F /* memoria_log.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = memoria_log.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				073A6C53202A561B00BA2597 /* MemoryInfo.m */,
 				07F5DE192040928200EE7B3F /* MemoriaTask.h */,
 				07F5DE1A2040928200EE7B3F /* MemoriaTask.m */,
+				07F5DE1C204098A900EE7B3F /* memoria_log.h */,
+				07F5DE1D204098B700EE7B3F /* memoria_log.m */,
 			);
 			path = Memoria;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				073A6C21202A45E400BA2597 /* main.m in Sources */,
 				07F5DE1B2040928200EE7B3F /* MemoriaTask.m in Sources */,
 				073A6C16202A45E400BA2597 /* AppDelegate.m in Sources */,
+				07F5DE1E204098B700EE7B3F /* memoria_log.m in Sources */,
 				073A6C4A202A478E00BA2597 /* MemoriaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

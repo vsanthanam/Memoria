@@ -8,9 +8,19 @@
 
 #import "MemoryInfoManager.h"
 
+#import "memoria_log.h"
+
 @implementation MemoryInfoManager
 
 @synthesize delegate = _delegate;
+
+static os_log_t mim_log;
+
++ (void)initialize {
+    
+    mim_log = memoria_log_create("MemoryInfoManager");
+    
+}
 
 - (void)getMemoryInfo {
     
@@ -23,6 +33,12 @@
     
     NSError *memoryInfoError;
     [[NSFileManager defaultManager] removeItemAtPath:memoryInfoTemporaryFile error:&memoryInfoError];
+    
+    if (memoryInfoError) {
+        
+        os_log_error(mim_log, "Couldn't remove temporary memory info file: %@", memoryInfoError.localizedDescription);
+        
+    }
     
     NSDictionary *payload = memoryInfoArray[0];
     
