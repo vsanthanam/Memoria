@@ -9,17 +9,32 @@
 #import "MemoriaViewController.h"
 
 #import "MemoryInfoManager.h"
+#import "MemoriaTask.h"
 
 @interface MemoriaViewController ()<MemoryInfoManagerDelegate, NSTableViewDelegate, NSTableViewDataSource>
 
 @property (weak) IBOutlet NSTableView *memoryInfoTableView;
+@property (weak) IBOutlet NSTextField *amounTextField;
+@property (weak) IBOutlet NSButton *allMemoryCheckBox;
+@property (weak) IBOutlet NSTextField *cyclesTextField;
+@property (weak) IBOutlet NSButton *maximumCyclesTextField;
+@property (weak) IBOutlet NSProgressIndicator *taskStatusProgressBar;
+@property (weak) IBOutlet NSTextField *cyclesLabel;
+@property (weak) IBOutlet NSButton *startStopButton;
 
-@property (strong, readonly) MemoryInfoManager *memoryInfoManager;
-@property (strong) NSArray<MemoryInfo *> *memoryInfo;
+@property (readonly) MemoryInfoManager *memoryInfoManager;
+@property NSArray<MemoryInfo *> *memoryInfo;
+
+@property MemoriaTask *task;
 
 @end
 
-@implementation MemoriaViewController
+@implementation MemoriaViewController {
+    
+    int _cycles;
+    int _pid;
+    
+}
 
 @synthesize memoryInfoTableView = _memoryInfoTableView;
 @synthesize memoryInfoManager = _memoryInfoManager;
@@ -148,6 +163,20 @@
     
 }
 
+#pragma mark - MemoriaTaskDelegate
+
+- (void)memoriaTaskDidStartProcess:(MemoriaTask *)task {
+    
+}
+
+- (void)memoriaTaskDidEndProcess:(MemoriaTask *)task {
+    
+}
+
+- (void)memoriaTask:(MemoriaTask *)task didSendOutputStringFromProcess:(NSString *)outputString {
+    
+}
+
 #pragma mark - Private Instance Methods
 
 - (void)_setUpMemoriaUI {
@@ -166,6 +195,64 @@
 - (void)_getMemoryInfo {
     
     [self.memoryInfoManager getMemoryInfo];
+    
+}
+
+- (void)_startTest {
+    
+    _cycles = [self.cyclesTextField intValue];
+    
+    NSString *cyclesString = [self.cyclesTextField stringValue];
+    NSString *amountString = self.allMemoryCheckBox.state ? @"all" : [self.amounTextField stringValue];
+    
+    NSString *mtpath = [[NSBundle mainBundle] pathForResource:@"memtest" ofType:nil];
+    
+    _pid = [self _openTask:mtpath withArguments:@[amountString, cyclesString]];
+    
+    
+}
+
+- (void)_stopTest {
+    
+    [self.task endProcess];
+    
+}
+
+- (int)_openTask:(NSString *)path withArguments:(NSArray<NSString *> *)arguments {
+    
+    NSMutableArray<NSString *> *args = [[NSMutableArray<NSString *> alloc] init];
+    
+    [args addObject:path];
+    [args addObjectsFromArray:arguments];
+
+    if (self.task.running) {
+        
+        [self.task endProcess];
+        
+    }
+    
+    self.task = [[MemoriaTask alloc] initWithDelegate:self arguments:args];
+    [self.task startProcess];
+    
+    int pid = self.task.pid;
+    
+    return pid;
+    
+}
+
+#pragma mark - Actions
+
+- (IBAction)userStartStopTest:(id)sender {
+    
+    if (!self.task.running) {
+        
+        [self _startTest];
+        
+    } else {
+        
+        [self _stopTest];
+        
+    }
     
 }
 

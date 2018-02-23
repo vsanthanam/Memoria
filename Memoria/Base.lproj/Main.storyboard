@@ -690,6 +690,8 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="482"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="482"/>
+                        <value key="maxSize" type="size" width="480" height="482"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -874,7 +876,7 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="56R-0G-fqR">
                                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="87d-rg-6Vv">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Type" id="87d-rg-6Vv">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -952,7 +954,7 @@
                                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5EN-w9-eTy">
                                                         <rect key="frame" x="20" y="46" width="149" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="1" drawsBackground="YES" id="NHC-80-GSY">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="1-255" drawsBackground="YES" id="NHC-80-GSY">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -994,42 +996,45 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="P0m-g3-Jzw">
-                                            <rect key="frame" x="406" y="22" width="16" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        </progressIndicator>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="92" id="Uxw-ss-LJC"/>
                                 </constraints>
                             </box>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cfD-2T-36J">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfD-2T-36J">
                                 <rect key="frame" x="366" y="13" width="100" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Start Test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jSg-hk-o9a">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="userStartStopTest:" target="XfG-lQ-9wD" id="fvJ-kD-Thz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cfD-2T-36J" secondAttribute="trailing" constant="20" id="0Hd-3S-oiD"/>
                             <constraint firstAttribute="trailing" secondItem="KlA-YX-uHQ" secondAttribute="trailing" constant="20" id="4hg-HQ-Ok5"/>
                             <constraint firstItem="KlA-YX-uHQ" firstAttribute="top" secondItem="hyW-Yq-wEa" secondAttribute="bottom" constant="8" id="4wT-Kl-aQb"/>
                             <constraint firstItem="hyW-Yq-wEa" firstAttribute="top" secondItem="EnG-RN-iZm" secondAttribute="bottom" constant="8" id="5u9-PS-RC4"/>
                             <constraint firstAttribute="trailing" secondItem="hyW-Yq-wEa" secondAttribute="trailing" constant="20" id="80I-z5-Tc0"/>
-                            <constraint firstAttribute="bottom" secondItem="cfD-2T-36J" secondAttribute="bottom" constant="20" id="HE2-Mh-nHE"/>
                             <constraint firstItem="EnG-RN-iZm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="HIU-It-d5a"/>
                             <constraint firstItem="KlA-YX-uHQ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="JIH-tx-IGT"/>
-                            <constraint firstItem="cfD-2T-36J" firstAttribute="top" secondItem="KlA-YX-uHQ" secondAttribute="bottom" constant="20" id="MlQ-a5-BMv"/>
-                            <constraint firstItem="cfD-2T-36J" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="372" id="T9T-lC-br1"/>
                             <constraint firstAttribute="trailing" secondItem="EnG-RN-iZm" secondAttribute="trailing" constant="20" id="Vjy-uV-b5i"/>
                             <constraint firstItem="EnG-RN-iZm" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="kRL-aI-K6M"/>
                             <constraint firstItem="hyW-Yq-wEa" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="nrl-8d-UJA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allMemoryCheckBox" destination="kc0-Vo-ZtN" id="7ke-Nc-exy"/>
+                        <outlet property="amounTextField" destination="moc-iS-ZXC" id="ejb-Xs-Dif"/>
+                        <outlet property="cyclesLabel" destination="Xmx-Jm-bkH" id="vdN-6v-we3"/>
+                        <outlet property="cyclesTextField" destination="5EN-w9-eTy" id="kdf-iI-jWk"/>
+                        <outlet property="maximumCyclesTextField" destination="6S3-Ch-OTG" id="T0n-tF-Vyl"/>
                         <outlet property="memoryInfoTableView" destination="0dF-cy-BOz" id="gHH-A3-5u4"/>
+                        <outlet property="startStopButton" destination="cfD-2T-36J" id="gMX-rx-9Kc"/>
+                        <outlet property="taskStatusProgressBar" destination="Mgf-vp-mNf" id="UH8-Ak-qiW"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

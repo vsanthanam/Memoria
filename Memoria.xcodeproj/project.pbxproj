@@ -17,6 +17,7 @@
 		073A6C51202A546300BA2597 /* MemoryInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C50202A546300BA2597 /* MemoryInfoManager.m */; };
 		073A6C54202A561B00BA2597 /* MemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C53202A561B00BA2597 /* MemoryInfo.m */; };
 		073A6C56202A65B200BA2597 /* memtest in Resources */ = {isa = PBXBuildFile; fileRef = 073A6C55202A65B200BA2597 /* memtest */; };
+		0797596B2040A8FF006551C3 /* test_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0797596A2040A8FF006551C3 /* test_list.plist */; };
 		07F5DE1B2040928200EE7B3F /* MemoriaTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F5DE1A2040928200EE7B3F /* MemoriaTask.m */; };
 		07F5DE1E204098B700EE7B3F /* memoria_log.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F5DE1D204098B700EE7B3F /* memoria_log.m */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		073A6C52202A561B00BA2597 /* MemoryInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryInfo.h; sourceTree = "<group>"; };
 		073A6C53202A561B00BA2597 /* MemoryInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryInfo.m; sourceTree = "<group>"; };
 		073A6C55202A65B200BA2597 /* memtest */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = memtest; sourceTree = "<group>"; };
+		0797596A2040A8FF006551C3 /* test_list.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test_list.plist; sourceTree = "<group>"; };
 		07F5DE192040928200EE7B3F /* MemoriaTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoriaTask.h; sourceTree = "<group>"; };
 		07F5DE1A2040928200EE7B3F /* MemoriaTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoriaTask.m; sourceTree = "<group>"; };
 		07F5DE1C204098A900EE7B3F /* memoria_log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memoria_log.h; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				07F5DE1A2040928200EE7B3F /* MemoriaTask.m */,
 				07F5DE1C204098A900EE7B3F /* memoria_log.h */,
 				07F5DE1D204098B700EE7B3F /* memoria_log.m */,
+				0797596A2040A8FF006551C3 /* test_list.plist */,
 			);
 			path = Memoria;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0797596B2040A8FF006551C3 /* test_list.plist in Resources */,
 				073A6C56202A65B200BA2597 /* memtest in Resources */,
 				073A6C1B202A45E400BA2597 /* Assets.xcassets in Resources */,
 				073A6C1E202A45E400BA2597 /* Main.storyboard in Resources */,
