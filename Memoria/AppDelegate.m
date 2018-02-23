@@ -26,5 +26,16 @@
     // Insert code here to tear down your application
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
+    
+    if (flag)
+        return NO;
+    
+    NSWindow *window = [NSApplication sharedApplication].windows[0];
+    [window makeKeyAndOrderFront:self];
+    
+    return YES;
+    
+}
 
 @end

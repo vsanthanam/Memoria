@@ -59,12 +59,6 @@
     
 }
 
-//- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-//
-//
-//
-//}
-
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
     MemoryInfo *info = self.memoryInfo[row];
@@ -73,6 +67,26 @@
         
         NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"StatusCellID" owner:nil];
         
+        cellView.objectValue = info.status;
+        
+        if ([info.status isEqualToString:@"ok"]) {
+            
+            cellView.imageView.image = [NSImage imageNamed:@"green_status"];
+            
+        } else if ([info.status isEqualToString:@"failed"]){
+            
+            cellView.imageView.image = [NSImage imageNamed:@"red_status"];
+            
+        } else if ([info.status isEqualToString:@"empty"]) {
+            
+            cellView.imageView.image = [NSImage imageNamed:@"white_status"];
+            
+        } else {
+            
+            cellView.imageView.image = [NSImage imageNamed:@"white_status"];
+            
+        }
+                
         return cellView;
         
     }
