@@ -6,16 +6,14 @@
 //  Copyright © 2018 Varun Santhanam. All rights reserved.
 //
 
-@import IOKit.pwr_mgt;
-
 #import "MemoriaViewController.h"
 
+#import "memoria_log.h"
 #import "MemoryInfoManager.h"
-#import "MemoriaTask.h"
-#import "MemoriaReport.h"
+#import "Memoria.h"
 #import "MemoriaReportViewController.h"
 
-@interface MemoriaViewController ()<MemoryInfoManagerDelegate, NSTableViewDelegate, NSTableViewDataSource>
+@interface MemoriaViewController ()<MemoryInfoManagerDelegate, NSTableViewDelegate, NSTableViewDataSource, MemoriaDelegate>
 
 @property (weak) IBOutlet NSTableView *memoryInfoTableView;
 @property (weak) IBOutlet NSTextField *amounTextField;
@@ -31,20 +29,11 @@
 @property (strong, readonly) MemoryInfoManager *memoryInfoManager;
 @property (strong) NSArray<MemoryInfo *> *memoryInfo;
 
-@property (strong) MemoriaTask *task;
-@property (strong) MemoriaReport *report;
+@property (strong) Memoria *memoria;
 
 @end
 
-@implementation MemoriaViewController {
-    
-    IOPMAssertionID assertionID;
-    int             _pid;
-    int             _totalCycles;
-    int             _completedCycles;
-    int             _amount;
-    
-}
+@implementation MemoriaViewController
 
 @synthesize memoryInfoTableView = _memoryInfoTableView;
 @synthesize memoryInfoManager = _memoryInfoManager;
@@ -173,17 +162,17 @@
     
 }
 
-#pragma mark - MemoriaTaskDelegate
+#pragma mark - MemoriaDelegate
 
-- (void)memoriaTaskDidStartProcess:(MemoriaTask *)task {
+- (void)memoriaDidStart:(Memoria *)memoria {
     
 }
 
-- (void)memoriaTaskDidEndProcess:(MemoriaTask *)task {
+- (void)memoriaDidEnd:(Memoria *)memoria {
     
 }
 
-- (void)memoriaTask:(MemoriaTask *)task didSendOutputStringFromProcess:(NSString *)outputString {
+- (void)memoria:(Memoria *)memoria didStartTest:(NSString *)test {
     
 }
 
@@ -233,65 +222,16 @@
         
     }
     
-    // keep references
-    _totalCycles = self.cyclesTextField.intValue;
-    _amount = self.amounTextField.intValue;
-    
-    // create argus
-    NSString *cyclesString = self.maximumCyclesCheckBox.state ? @"255" : self.cyclesTextField.stringValue;
-    NSString *amountString = self.allMemoryCheckBox.state ? @"all" : self.amounTextField.stringValue;
-    
-    // open mentest
-    NSString *mtpath = [[NSBundle mainBundle] pathForResource:@"memtest" ofType:nil];
-    
-    // launch
-    _pid = [self _openTask:mtpath withArguments:@[amountString, cyclesString]];
-    
-    if (_pid > 0) {
-        
-        [self _setStatusLabelText:@""];
-        
-    } else {
-        
-        NSAlert *alert = [[NSAlert alloc] init];
-        alert.messageText = NSLocalizedString(@"Unknown Error", nil);
-        alert.informativeText = NSLocalizedString(@"Couldn't Launch Memtest", nil);
-        
-        [alert runModal];
-        
-    }
+    self.memoria = [[Memoria alloc] initWithDelegate:self
+                                              amount:self.allMemoryCheckBox.state ? -1 : self.amounTextField.integerValue
+                                              cycles:self.maximumCyclesCheckBox.state ? 255 : self.cyclesTextField.integerValue];
+    [self.memoria start];
     
 }
 
 - (void)_stopTest {
     
-    [self.task endProcess];
-    
-}
-
-- (int)_openTask:(NSString *)path withArguments:(NSArray<NSString *> *)arguments {
-    
-    // build args
-    NSMutableArray<NSString *> *args = [[NSMutableArray<NSString *> alloc] init];
-    
-    [args addObject:path];
-    [args addObjectsFromArray:arguments];
-
-    // checck for currently open task
-    if (self.task.running) {
-        
-        [self.task endProcess];
-        
-    }
-    
-    // start
-    self.task = [[MemoriaTask alloc] initWithDelegate:self arguments:args];
-    [self.task startProcess];
-    
-    int pid = self.task.pid;
-    
-    // return pid
-    return pid;
+    [self.memoria stop];
     
 }
 
@@ -305,7 +245,7 @@
     
     NSWindowController *windowController = (NSWindowController *)[[NSStoryboard storyboardWithName:@"MemoriaReport" bundle:[NSBundle mainBundle]] instantiateInitialController];
     MemoriaReportViewController *viewController = (MemoriaReportViewController *)windowController.window.contentViewController;
-    viewController.report = self.report;
+    viewController.report = self.memoria.report;
     
     [self.view.window beginSheet:windowController.window completionHandler:nil];
     
@@ -315,14 +255,16 @@
 
 - (IBAction)userStartStopTest:(id)sender {
     
-    if (!self.task.running) {
-        
+    [self _startTest];
+    
+    if (!self.memoria.running) {
+
         [self _startTest];
-        
+
     } else {
-        
+
         [self _stopTest];
-        
+
     }
     
 }
