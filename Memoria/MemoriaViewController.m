@@ -20,7 +20,7 @@
 @property (weak) IBOutlet NSButton *allMemoryCheckBox;
 @property (weak) IBOutlet NSTextField *cyclesTextField;
 @property (weak) IBOutlet NSButton *maximumCyclesCheckBox;
-@property (weak) IBOutlet NSProgressIndicator *taskStatusProgressBar;
+@property (weak) IBOutlet NSProgressIndicator *progressBar;
 @property (weak) IBOutlet NSTextField *cyclesLabel;
 @property (weak) IBOutlet NSButton *startStopButton;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
@@ -166,13 +166,26 @@
 
 - (void)memoriaDidStart:(Memoria *)memoria {
     
+    NSLog(@"CALLED");
+    
+    [self.progressIndicator startAnimation:nil];
+    
 }
 
 - (void)memoriaDidEnd:(Memoria *)memoria {
     
+    NSLog(@"NOT CALLED");
+    
+    [self.progressIndicator stopAnimation:nil];
+    
 }
 
 - (void)memoria:(Memoria *)memoria didStartTest:(NSString *)test {
+    
+    [self _setStatusLabelText:test];
+//    self.taskStatusProgressBar.minValue = 0.0f;
+//    self.taskStatusProgressBar.maxValue = 100.0f;
+    self.progressBar.doubleValue = memoria.progress;
     
 }
 
@@ -181,6 +194,8 @@
 - (void)_setUpMemoriaUI {
     
     [self _setUpMemoryInfoTableView];
+    [self _setUpProgressBar];
+    [self _setUpStatusLabel];
     
 }
 
@@ -188,6 +203,20 @@
  
     self.memoryInfoTableView.delegate = self;
     self.memoryInfoTableView.dataSource = self;
+    
+}
+
+- (void)_setUpProgressBar {
+    
+    self.progressBar.usesThreadedAnimation = YES;
+    self.progressBar.minValue = 0.0f;
+    self.progressBar.maxValue = 100.0f;
+    
+}
+
+- (void)_setUpStatusLabel {
+    
+    [self _setStatusLabelText:@""];
     
 }
 
@@ -254,9 +283,7 @@
 #pragma mark - Actions
 
 - (IBAction)userStartStopTest:(id)sender {
-    
-    [self _startTest];
-    
+        
     if (!self.memoria.running) {
 
         [self _startTest];

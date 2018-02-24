@@ -22,6 +22,7 @@
 
 @implementation Memoria {
     
+    NSInteger           _completedTests;
     IOPMAssertionID     _assertionID;
     NSArray<NSString *> *_testList;
     NSArray<NSString *> *_progressList;
@@ -65,6 +66,12 @@ static os_log_t memtest_log;
 - (BOOL)isRunning {
     
     return self.task.running;
+    
+}
+
+- (double)progress {
+    
+    return ((double)_completedTests / (double)(self.totalCycles * _testList.count)) * 100.0f;
     
 }
 
@@ -126,8 +133,14 @@ static os_log_t memtest_log;
         if ([outputString rangeOfString:test].location != NSNotFound) {
             
             log = YES;
+            _completedTests++;
             
-            // update ui
+            if ([self.delegate respondsToSelector:@selector(memoria:didStartTest:)]) {
+                
+                [self.delegate memoria:self didStartTest:test];
+                
+            }
+            
             os_log(memoria_log(), "Running Test: %@", test);
             
         }
@@ -208,6 +221,7 @@ static os_log_t memtest_log;
         _totalCycles = cycles;
         
         _completedCycles = 0;
+        _completedTests = 0;
         _testList = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test_list" ofType:@"plist"]];
         _progressList = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"progress_list" ofType:@"plist"]];
 
@@ -239,11 +253,23 @@ static os_log_t memtest_log;
     
     [self.task startProcess];
     
+    if ([self.delegate respondsToSelector:@selector(memoriaDidStart:)]) {
+        
+        [self.delegate memoriaDidStart:self];
+        
+    }
+    
 }
 
 - (void)stop {
     
     [self _disableSleepPrevention];
+    
+    if ([self.delegate respondsToSelector:@selector(memoriaDidEnd:)]) {
+        
+        [self.delegate memoriaDidEnd:self];
+        
+    }
     
 }
 

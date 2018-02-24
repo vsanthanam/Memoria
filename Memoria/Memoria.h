@@ -33,6 +33,7 @@
 
 @property (readonly) int pid;
 @property (readonly, getter=isRunning) BOOL running;
+@property (readonly) double progress;
 
 - (nullable instancetype)initWithDelegate:(nullable id<MemoriaDelegate>)delegate amount:(NSInteger)amount cycles:(NSInteger)cycles NS_DESIGNATED_INITIALIZER;
 
