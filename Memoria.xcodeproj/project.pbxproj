@@ -126,31 +126,9 @@
 		073A6C13202A45E400BA2597 /* Memoria */ = {
 			isa = PBXGroup;
 			children = (
-				073A6C55202A65B200BA2597 /* memtest */,
-				073A6C14202A45E400BA2597 /* AppDelegate.h */,
-				073A6C15202A45E400BA2597 /* AppDelegate.m */,
-				073A6C47202A478E00BA2597 /* MemoriaViewController.h */,
-				073A6C48202A478E00BA2597 /* MemoriaViewController.m */,
-				07AA01812041CE170010ED11 /* MemoriaReportViewController.h */,
-				07AA01822041CE170010ED11 /* MemoriaReportViewController.m */,
-				073A6C1A202A45E400BA2597 /* Assets.xcassets */,
-				073A6C1C202A45E400BA2597 /* Main.storyboard */,
-				07AA017F2041CDAD0010ED11 /* MemoriaReport.storyboard */,
-				073A6C1F202A45E400BA2597 /* Info.plist */,
-				073A6C20202A45E400BA2597 /* main.m */,
-				073A6C22202A45E400BA2597 /* Memoria.entitlements */,
-				073A6C4F202A546300BA2597 /* MemoryInfoManager.h */,
-				073A6C50202A546300BA2597 /* MemoryInfoManager.m */,
-				073A6C52202A561B00BA2597 /* MemoryInfo.h */,
-				073A6C53202A561B00BA2597 /* MemoryInfo.m */,
-				07F5DE192040928200EE7B3F /* MemoriaTask.h */,
-				07F5DE1A2040928200EE7B3F /* MemoriaTask.m */,
-				07F5DE1C204098A900EE7B3F /* memoria_log.h */,
-				07F5DE1D204098B700EE7B3F /* memoria_log.m */,
-				0797596A2040A8FF006551C3 /* test_list.plist */,
-				07AA01842041CF8D0010ED11 /* MemoriaReport.h */,
-				07AA01852041CF8D0010ED11 /* MemoriaReport.m */,
-				07AA01872041D1D10010ED11 /* MemoriaReport.rtf */,
+				07AA018C2041D2B30010ED11 /* Supporting Files */,
+				07AA018B2041D2990010ED11 /* UI */,
+				07AA01892041D2670010ED11 /* Src */,
 			);
 			path = Memoria;
 			sourceTree = "<group>";
@@ -171,6 +149,92 @@
 				073A6C38202A45E400BA2597 /* Info.plist */,
 			);
 			path = MemoriaUITests;
+			sourceTree = "<group>";
+		};
+		07AA01892041D2670010ED11 /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				073A6C20202A45E400BA2597 /* main.m */,
+				07AA018F2041D2DD0010ED11 /* View Controllers */,
+				07AA01902041D2EC0010ED11 /* Data Structures */,
+				07AA01912041D3040010ED11 /* Parts */,
+			);
+			name = Src;
+			sourceTree = "<group>";
+		};
+		07AA018B2041D2990010ED11 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				07AA01872041D1D10010ED11 /* MemoriaReport.rtf */,
+				07AA018E2041D2CA0010ED11 /* Asset Catalogues */,
+				07AA018D2041D2C10010ED11 /* Storyboards */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		07AA018C2041D2B30010ED11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				073A6C1F202A45E400BA2597 /* Info.plist */,
+				073A6C22202A45E400BA2597 /* Memoria.entitlements */,
+				0797596A2040A8FF006551C3 /* test_list.plist */,
+				073A6C55202A65B200BA2597 /* memtest */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		07AA018D2041D2C10010ED11 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				073A6C1C202A45E400BA2597 /* Main.storyboard */,
+				07AA017F2041CDAD0010ED11 /* MemoriaReport.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		07AA018E2041D2CA0010ED11 /* Asset Catalogues */ = {
+			isa = PBXGroup;
+			children = (
+				073A6C1A202A45E400BA2597 /* Assets.xcassets */,
+			);
+			name = "Asset Catalogues";
+			sourceTree = "<group>";
+		};
+		07AA018F2041D2DD0010ED11 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07AA01812041CE170010ED11 /* MemoriaReportViewController.h */,
+				07AA01822041CE170010ED11 /* MemoriaReportViewController.m */,
+				073A6C47202A478E00BA2597 /* MemoriaViewController.h */,
+				073A6C48202A478E00BA2597 /* MemoriaViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		07AA01902041D2EC0010ED11 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				07AA01842041CF8D0010ED11 /* MemoriaReport.h */,
+				07AA01852041CF8D0010ED11 /* MemoriaReport.m */,
+				073A6C52202A561B00BA2597 /* MemoryInfo.h */,
+				073A6C53202A561B00BA2597 /* MemoryInfo.m */,
+			);
+			name = "Data Structures";
+			sourceTree = "<group>";
+		};
+		07AA01912041D3040010ED11 /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				073A6C14202A45E400BA2597 /* AppDelegate.h */,
+				073A6C15202A45E400BA2597 /* AppDelegate.m */,
+				073A6C4F202A546300BA2597 /* MemoryInfoManager.h */,
+				073A6C50202A546300BA2597 /* MemoryInfoManager.m */,
+				07F5DE192040928200EE7B3F /* MemoriaTask.h */,
+				07F5DE1A2040928200EE7B3F /* MemoriaTask.m */,
+				07F5DE1C204098A900EE7B3F /* memoria_log.h */,
+				07F5DE1D204098B700EE7B3F /* memoria_log.m */,
+			);
+			name = Parts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
