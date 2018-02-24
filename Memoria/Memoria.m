@@ -79,13 +79,25 @@ static os_log_t memtest_log;
 
 - (void)memoriaTaskDidStartProcess:(MemoriaTask *)task {
     
-//    [self _enableSleepPrevet/ion];
+    [self _enableSleepPrevetion];
+    
+    if ([self.delegate respondsToSelector:@selector(memoriaDidStart:)]) {
+        
+        [self.delegate memoriaDidStart:self];
+        
+    }
     
 }
 
 - (void)memoriaTaskDidEndProcess:(MemoriaTask *)task {
     
-//    [self _disableSleepPrevention];
+    [self _disableSleepPrevention];
+    
+    if ([self.delegate respondsToSelector:@selector(memoriaDidEnd:)]) {
+        
+        [self.delegate memoriaDidEnd:self];
+        
+    }
     
 }
 
@@ -235,8 +247,6 @@ static os_log_t memtest_log;
 
 - (void)start {
     
-    [self _enableSleepPrevetion];
-    
     // get memtest cli path
     NSString *mtpath = [[NSBundle mainBundle] pathForResource:@"memtest" ofType:nil];
     
@@ -253,23 +263,11 @@ static os_log_t memtest_log;
     
     [self.task startProcess];
     
-    if ([self.delegate respondsToSelector:@selector(memoriaDidStart:)]) {
-        
-        [self.delegate memoriaDidStart:self];
-        
-    }
-    
 }
 
 - (void)stop {
     
-    [self _disableSleepPrevention];
-    
-    if ([self.delegate respondsToSelector:@selector(memoriaDidEnd:)]) {
-        
-        [self.delegate memoriaDidEnd:self];
-        
-    }
+    [self.task endProcess];
     
 }
 

@@ -181,7 +181,7 @@
     [self _setStatusLabelText:test];
     self.progressBar.doubleValue = memoria.progress;
     
-    self.cyclesLabel.stringValue = [NSString stringWithFormat:@"Completed %li of %li", (long)memoria.completedCycles, (long)memoria.totalCycles];
+    self.cyclesLabel.stringValue = [NSString stringWithFormat:@"Running Cycle %li of %li", (long)memoria.completedCycles, (long)memoria.totalCycles];
     
 }
 
@@ -284,6 +284,37 @@
 }
 
 #pragma mark - Actions
+
+- (IBAction)userAllMemory:(id)sender {
+ 
+    if (self.allMemoryCheckBox.state) {
+        
+        self.amounTextField.stringValue = @"";
+        self.amounTextField.enabled = NO;
+        
+    } else {
+        
+        self.amounTextField.enabled = YES;
+        
+    }
+    
+}
+
+- (IBAction)userMaximum:(id)sender {
+    
+    if (self.maximumCyclesCheckBox.state) {
+        
+        self.cyclesTextField.stringValue = @"";
+        self.cyclesTextField.enabled = NO;
+        
+    } else {
+        
+        self.cyclesTextField.stringValue = @"1";
+        self.cyclesTextField.enabled = YES;
+        
+    }
+    
+}
 
 - (IBAction)userStartStopTest:(id)sender {
     
