@@ -180,8 +180,8 @@
 		07AA018C2041D2B30010ED11 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				073A6C1F202A45E400BA2597 /* Info.plist */,
 				073A6C22202A45E400BA2597 /* Memoria.entitlements */,
+				073A6C1F202A45E400BA2597 /* Info.plist */,
 				0797596A2040A8FF006551C3 /* test_list.plist */,
 				07AA01922041D5FF0010ED11 /* progress_list.plist */,
 				073A6C55202A65B200BA2597 /* memtest */,

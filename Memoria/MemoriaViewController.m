@@ -166,15 +166,11 @@
 
 - (void)memoriaDidStart:(Memoria *)memoria {
     
-    NSLog(@"CALLED");
-    
     [self.progressIndicator startAnimation:nil];
     
 }
 
 - (void)memoriaDidEnd:(Memoria *)memoria {
-    
-    NSLog(@"NOT CALLED");
     
     [self.progressIndicator stopAnimation:nil];
     
@@ -183,9 +179,9 @@
 - (void)memoria:(Memoria *)memoria didStartTest:(NSString *)test {
     
     [self _setStatusLabelText:test];
-//    self.taskStatusProgressBar.minValue = 0.0f;
-//    self.taskStatusProgressBar.maxValue = 100.0f;
     self.progressBar.doubleValue = memoria.progress;
+    
+    self.cyclesLabel.stringValue = [NSString stringWithFormat:@"Completed %li of %li", (long)memoria.completedCycles, (long)memoria.totalCycles];
     
 }
 
@@ -196,6 +192,7 @@
     [self _setUpMemoryInfoTableView];
     [self _setUpProgressBar];
     [self _setUpStatusLabel];
+    [self _setUpCyclesLabel];
     
 }
 
@@ -217,6 +214,12 @@
 - (void)_setUpStatusLabel {
     
     [self _setStatusLabelText:@""];
+    
+}
+
+- (void)_setUpCyclesLabel {
+    
+    self.cyclesLabel.stringValue = @"";
     
 }
 
@@ -283,7 +286,7 @@
 #pragma mark - Actions
 
 - (IBAction)userStartStopTest:(id)sender {
-        
+    
     if (!self.memoria.running) {
 
         [self _startTest];
