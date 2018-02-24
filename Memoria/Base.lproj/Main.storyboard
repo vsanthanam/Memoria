@@ -1013,6 +1013,19 @@
                                     <action selector="userStartStopTest:" target="XfG-lQ-9wD" id="fvJ-kD-Thz"/>
                                 </connections>
                             </button>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="3Rw-5P-Omv">
+                                <rect key="frame" x="20" y="20" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BX2-ag-3ml">
+                                <rect key="frame" x="42" y="20" width="322" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status" id="Hiw-oA-039">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KlA-YX-uHQ" secondAttribute="trailing" constant="20" id="4hg-HQ-Ok5"/>
@@ -1031,9 +1044,11 @@
                         <outlet property="amounTextField" destination="moc-iS-ZXC" id="ejb-Xs-Dif"/>
                         <outlet property="cyclesLabel" destination="Xmx-Jm-bkH" id="vdN-6v-we3"/>
                         <outlet property="cyclesTextField" destination="5EN-w9-eTy" id="kdf-iI-jWk"/>
-                        <outlet property="maximumCyclesTextField" destination="6S3-Ch-OTG" id="T0n-tF-Vyl"/>
+                        <outlet property="maximumCyclesCheckBox" destination="6S3-Ch-OTG" id="EBm-Fl-cuF"/>
                         <outlet property="memoryInfoTableView" destination="0dF-cy-BOz" id="gHH-A3-5u4"/>
+                        <outlet property="progressIndicator" destination="3Rw-5P-Omv" id="3kq-Bo-akM"/>
                         <outlet property="startStopButton" destination="cfD-2T-36J" id="gMX-rx-9Kc"/>
+                        <outlet property="statusLabel" destination="BX2-ag-3ml" id="osy-MH-TMc"/>
                         <outlet property="taskStatusProgressBar" destination="Mgf-vp-mNf" id="UH8-Ak-qiW"/>
                     </connections>
                 </viewController>

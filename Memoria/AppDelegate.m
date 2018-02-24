@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-//#import "MemoryInfoManager.h"
-
 @interface AppDelegate ()
 
 @end

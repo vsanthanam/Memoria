@@ -7,7 +7,6 @@
 //
 
 @import Cocoa;
-@import IOKit;
 
 #import "MemoriaTask.h"
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="c84-FG-Vfq">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="gHS-i5-7HO">
+            <objects>
+                <windowController id="c84-FG-Vfq" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="0lG-mT-j48">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="310" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <connections>
+                            <outlet property="delegate" destination="c84-FG-Vfq" id="1Pw-1W-TmU"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Siq-eM-LqF" kind="relationship" relationship="window.shadowedContentViewController" id="DRr-ar-jmY"/>
+                    </connections>
+                </windowController>
+                <customObject id="4Ao-Cp-bnw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-157" y="67"/>
+        </scene>
+        <!--Memoria Report View Controller-->
+        <scene sceneID="Hf3-Bs-9bg">
+            <objects>
+                <viewController id="Siq-eM-LqF" customClass="MemoriaReportViewController" sceneMemberID="viewController">
+                    <view key="view" id="q8B-fH-ngx">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="V3J-mm-Tcn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="67"/>
+        </scene>
+    </scenes>
+</document>

@@ -18,6 +18,10 @@
 		073A6C54202A561B00BA2597 /* MemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A6C53202A561B00BA2597 /* MemoryInfo.m */; };
 		073A6C56202A65B200BA2597 /* memtest in Resources */ = {isa = PBXBuildFile; fileRef = 073A6C55202A65B200BA2597 /* memtest */; };
 		0797596B2040A8FF006551C3 /* test_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0797596A2040A8FF006551C3 /* test_list.plist */; };
+		07AA01802041CDAD0010ED11 /* MemoriaReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07AA017F2041CDAD0010ED11 /* MemoriaReport.storyboard */; };
+		07AA01832041CE170010ED11 /* MemoriaReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA01822041CE170010ED11 /* MemoriaReportViewController.m */; };
+		07AA01862041CF8D0010ED11 /* MemoriaReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA01852041CF8D0010ED11 /* MemoriaReport.m */; };
+		07AA01882041D1D10010ED11 /* MemoriaReport.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07AA01872041D1D10010ED11 /* MemoriaReport.rtf */; };
 		07F5DE1B2040928200EE7B3F /* MemoriaTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F5DE1A2040928200EE7B3F /* MemoriaTask.m */; };
 		07F5DE1E204098B700EE7B3F /* memoria_log.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F5DE1D204098B700EE7B3F /* memoria_log.m */; };
 /* End PBXBuildFile section */
@@ -62,6 +66,12 @@
 		073A6C53202A561B00BA2597 /* MemoryInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryInfo.m; sourceTree = "<group>"; };
 		073A6C55202A65B200BA2597 /* memtest */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = memtest; sourceTree = "<group>"; };
 		0797596A2040A8FF006551C3 /* test_list.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test_list.plist; sourceTree = "<group>"; };
+		07AA017F2041CDAD0010ED11 /* MemoriaReport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoriaReport.storyboard; sourceTree = "<group>"; };
+		07AA01812041CE170010ED11 /* MemoriaReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoriaReportViewController.h; sourceTree = "<group>"; };
+		07AA01822041CE170010ED11 /* MemoriaReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoriaReportViewController.m; sourceTree = "<group>"; };
+		07AA01842041CF8D0010ED11 /* MemoriaReport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoriaReport.h; sourceTree = "<group>"; };
+		07AA01852041CF8D0010ED11 /* MemoriaReport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoriaReport.m; sourceTree = "<group>"; };
+		07AA01872041D1D10010ED11 /* MemoriaReport.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = MemoriaReport.rtf; sourceTree = "<group>"; };
 		07F5DE192040928200EE7B3F /* MemoriaTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoriaTask.h; sourceTree = "<group>"; };
 		07F5DE1A2040928200EE7B3F /* MemoriaTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoriaTask.m; sourceTree = "<group>"; };
 		07F5DE1C204098A900EE7B3F /* memoria_log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memoria_log.h; sourceTree = "<group>"; };
@@ -121,8 +131,11 @@
 				073A6C15202A45E400BA2597 /* AppDelegate.m */,
 				073A6C47202A478E00BA2597 /* MemoriaViewController.h */,
 				073A6C48202A478E00BA2597 /* MemoriaViewController.m */,
+				07AA01812041CE170010ED11 /* MemoriaReportViewController.h */,
+				07AA01822041CE170010ED11 /* MemoriaReportViewController.m */,
 				073A6C1A202A45E400BA2597 /* Assets.xcassets */,
 				073A6C1C202A45E400BA2597 /* Main.storyboard */,
+				07AA017F2041CDAD0010ED11 /* MemoriaReport.storyboard */,
 				073A6C1F202A45E400BA2597 /* Info.plist */,
 				073A6C20202A45E400BA2597 /* main.m */,
 				073A6C22202A45E400BA2597 /* Memoria.entitlements */,
@@ -135,6 +148,9 @@
 				07F5DE1C204098A900EE7B3F /* memoria_log.h */,
 				07F5DE1D204098B700EE7B3F /* memoria_log.m */,
 				0797596A2040A8FF006551C3 /* test_list.plist */,
+				07AA01842041CF8D0010ED11 /* MemoriaReport.h */,
+				07AA01852041CF8D0010ED11 /* MemoriaReport.m */,
+				07AA01872041D1D10010ED11 /* MemoriaReport.rtf */,
 			);
 			path = Memoria;
 			sourceTree = "<group>";
@@ -264,9 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0797596B2040A8FF006551C3 /* test_list.plist in Resources */,
+				07AA01802041CDAD0010ED11 /* MemoriaReport.storyboard in Resources */,
 				073A6C56202A65B200BA2597 /* memtest in Resources */,
 				073A6C1B202A45E400BA2597 /* Assets.xcassets in Resources */,
 				073A6C1E202A45E400BA2597 /* Main.storyboard in Resources */,
+				07AA01882041D1D10010ED11 /* MemoriaReport.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +314,10 @@
 				073A6C21202A45E400BA2597 /* main.m in Sources */,
 				07F5DE1B2040928200EE7B3F /* MemoriaTask.m in Sources */,
 				073A6C16202A45E400BA2597 /* AppDelegate.m in Sources */,
+				07AA01832041CE170010ED11 /* MemoriaReportViewController.m in Sources */,
 				07F5DE1E204098B700EE7B3F /* memoria_log.m in Sources */,
 				073A6C4A202A478E00BA2597 /* MemoriaViewController.m in Sources */,
+				07AA01862041CF8D0010ED11 /* MemoriaReport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

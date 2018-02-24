@@ -6,10 +6,14 @@
 //  Copyright © 2018 Varun Santhanam. All rights reserved.
 //
 
+@import IOKit.pwr_mgt;
+
 #import "MemoriaViewController.h"
 
 #import "MemoryInfoManager.h"
 #import "MemoriaTask.h"
+#import "MemoriaReport.h"
+#import "MemoriaReportViewController.h"
 
 @interface MemoriaViewController ()<MemoryInfoManagerDelegate, NSTableViewDelegate, NSTableViewDataSource>
 
@@ -17,22 +21,28 @@
 @property (weak) IBOutlet NSTextField *amounTextField;
 @property (weak) IBOutlet NSButton *allMemoryCheckBox;
 @property (weak) IBOutlet NSTextField *cyclesTextField;
-@property (weak) IBOutlet NSButton *maximumCyclesTextField;
+@property (weak) IBOutlet NSButton *maximumCyclesCheckBox;
 @property (weak) IBOutlet NSProgressIndicator *taskStatusProgressBar;
 @property (weak) IBOutlet NSTextField *cyclesLabel;
 @property (weak) IBOutlet NSButton *startStopButton;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
+@property (weak) IBOutlet NSTextField *statusLabel;
 
-@property (readonly) MemoryInfoManager *memoryInfoManager;
-@property NSArray<MemoryInfo *> *memoryInfo;
+@property (strong, readonly) MemoryInfoManager *memoryInfoManager;
+@property (strong) NSArray<MemoryInfo *> *memoryInfo;
 
-@property MemoriaTask *task;
+@property (strong) MemoriaTask *task;
+@property (strong) MemoriaReport *report;
 
 @end
 
 @implementation MemoriaViewController {
     
-    int _cycles;
-    int _pid;
+    IOPMAssertionID assertionID;
+    int             _pid;
+    int             _totalCycles;
+    int             _completedCycles;
+    int             _amount;
     
 }
 
@@ -200,15 +210,56 @@
 
 - (void)_startTest {
     
-    _cycles = [self.cyclesTextField intValue];
+    // Validate memory test settings
+    if (!self.allMemoryCheckBox.state  && self.amounTextField.doubleValue < 1) {
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = NSLocalizedString(@"Invalid Amount", nil);
+        alert.informativeText = NSLocalizedString(@"Please enter a valid amount of memory in MB, or choose ""All Available Memory""", nil);
+        
+        [alert runModal];
+        
+        return;
+        
+    } else if (!self.maximumCyclesCheckBox.state && (self.cyclesTextField.doubleValue < 1 || self.cyclesTextField.doubleValue > 255)) {
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = NSLocalizedString(@"Invalid Amount", nil);
+        alert.informativeText = NSLocalizedString(@"Please enter a valid cycle count (1-255), or chose ""Maximum""", nil);
+        
+        [alert runModal];
+        
+        return;
+        
+    }
     
-    NSString *cyclesString = [self.cyclesTextField stringValue];
-    NSString *amountString = self.allMemoryCheckBox.state ? @"all" : [self.amounTextField stringValue];
+    // keep references
+    _totalCycles = self.cyclesTextField.intValue;
+    _amount = self.amounTextField.intValue;
     
+    // create argus
+    NSString *cyclesString = self.maximumCyclesCheckBox.state ? @"255" : self.cyclesTextField.stringValue;
+    NSString *amountString = self.allMemoryCheckBox.state ? @"all" : self.amounTextField.stringValue;
+    
+    // open mentest
     NSString *mtpath = [[NSBundle mainBundle] pathForResource:@"memtest" ofType:nil];
     
+    // launch
     _pid = [self _openTask:mtpath withArguments:@[amountString, cyclesString]];
     
+    if (_pid > 0) {
+        
+        [self _setStatusLabelText:@""];
+        
+    } else {
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = NSLocalizedString(@"Unknown Error", nil);
+        alert.informativeText = NSLocalizedString(@"Couldn't Launch Memtest", nil);
+        
+        [alert runModal];
+        
+    }
     
 }
 
@@ -220,23 +271,43 @@
 
 - (int)_openTask:(NSString *)path withArguments:(NSArray<NSString *> *)arguments {
     
+    // build args
     NSMutableArray<NSString *> *args = [[NSMutableArray<NSString *> alloc] init];
     
     [args addObject:path];
     [args addObjectsFromArray:arguments];
 
+    // checck for currently open task
     if (self.task.running) {
         
         [self.task endProcess];
         
     }
     
+    // start
     self.task = [[MemoriaTask alloc] initWithDelegate:self arguments:args];
     [self.task startProcess];
     
     int pid = self.task.pid;
     
+    // return pid
     return pid;
+    
+}
+
+- (void)_setStatusLabelText:(NSString *)text {
+    
+    self.statusLabel.stringValue = text;
+    
+}
+
+- (void)_showReport:(id)sender {
+    
+    NSWindowController *windowController = (NSWindowController *)[[NSStoryboard storyboardWithName:@"MemoriaReport" bundle:[NSBundle mainBundle]] instantiateInitialController];
+    MemoriaReportViewController *viewController = (MemoriaReportViewController *)windowController.window.contentViewController;
+    viewController.report = self.report;
+    
+    [self.view.window beginSheet:windowController.window completionHandler:nil];
     
 }
 

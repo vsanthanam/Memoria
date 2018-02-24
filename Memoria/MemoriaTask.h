@@ -24,8 +24,8 @@
 
 @property (weak, nullable) id<MemoriaTaskDelegate> delegate;
 
-@property (nullable, readonly) NSTask *task;
-@property (nullable, readonly) NSArray<NSString *> *arguments;
+@property (strong, readonly, nullable) NSTask *task;
+@property (strong, readonly, nullable) NSArray<NSString *> *arguments;
 
 @property (readonly) int terminationStatus;
 @property (readonly) int pid;
