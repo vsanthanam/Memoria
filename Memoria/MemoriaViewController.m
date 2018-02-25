@@ -171,7 +171,7 @@
 }
 
 - (void)memoriaDidEnd:(Memoria *)memoria {
-    
+        
     [self _updateUI];
     [self _showReport:memoria.report];
     
@@ -276,7 +276,7 @@
 }
 
 - (void)_showReport:(id)sender {
-    
+
     NSWindowController *windowController = (NSWindowController *)[[NSStoryboard storyboardWithName:@"MemoriaReport" bundle:[NSBundle mainBundle]] instantiateInitialController];
     MemoriaReportViewController *viewController = (MemoriaReportViewController *)windowController.window.contentViewController;
     viewController.report = self.memoria.report;

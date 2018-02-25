@@ -213,6 +213,18 @@ static os_log_t memtest_log;
         
     }
     
+    if ([outputString rangeOfString:@"Execution time:"].location != NSNotFound) {
+        
+        log = YES;
+        
+        NSScanner *outputScanner = [NSScanner scannerWithString:outputString];
+        NSMutableString *temp = [NSMutableString stringWithCapacity:1];
+        
+        if ([outputScanner scanUpToString:@"seconds." intoString:&temp])
+            self.report.executionTime = [temp copy];
+
+    }
+    
     if (log) {
         
         os_log_info(memtest_log, "%@", outputString);

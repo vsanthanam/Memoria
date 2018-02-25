@@ -209,10 +209,10 @@
 		07AA018F2041D2DD0010ED11 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				07AA01812041CE170010ED11 /* MemoriaReportViewController.h */,
-				07AA01822041CE170010ED11 /* MemoriaReportViewController.m */,
 				073A6C47202A478E00BA2597 /* MemoriaViewController.h */,
 				073A6C48202A478E00BA2597 /* MemoriaViewController.m */,
+				07AA01812041CE170010ED11 /* MemoriaReportViewController.h */,
+				07AA01822041CE170010ED11 /* MemoriaReportViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -231,16 +231,16 @@
 		07AA01912041D3040010ED11 /* Parts */ = {
 			isa = PBXGroup;
 			children = (
-				073A6C14202A45E400BA2597 /* AppDelegate.h */,
-				073A6C15202A45E400BA2597 /* AppDelegate.m */,
-				073A6C4F202A546300BA2597 /* MemoryInfoManager.h */,
-				073A6C50202A546300BA2597 /* MemoryInfoManager.m */,
-				07F5DE192040928200EE7B3F /* MemoriaTask.h */,
-				07F5DE1A2040928200EE7B3F /* MemoriaTask.m */,
 				07F5DE1C204098A900EE7B3F /* memoria_log.h */,
 				07F5DE1D204098B700EE7B3F /* memoria_log.m */,
+				073A6C14202A45E400BA2597 /* AppDelegate.h */,
+				073A6C15202A45E400BA2597 /* AppDelegate.m */,
 				07AA01942041E8420010ED11 /* Memoria.h */,
 				07AA01952041E8420010ED11 /* Memoria.m */,
+				07F5DE192040928200EE7B3F /* MemoriaTask.h */,
+				07F5DE1A2040928200EE7B3F /* MemoriaTask.m */,
+				073A6C4F202A546300BA2597 /* MemoryInfoManager.h */,
+				073A6C50202A546300BA2597 /* MemoryInfoManager.m */,
 			);
 			name = Parts;
 			sourceTree = "<group>";
