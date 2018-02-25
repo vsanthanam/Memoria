@@ -81,6 +81,8 @@ static os_log_t memtest_log;
 
 - (void)memoriaTaskDidStartProcess:(MemoriaTask *)task {
     
+    self.report.startTime = [NSDate date];
+    
     [self _enableSleepPrevetion];
     
     if ([self.delegate respondsToSelector:@selector(memoriaDidStart:)]) {
@@ -92,6 +94,9 @@ static os_log_t memtest_log;
 }
 
 - (void)memoriaTaskDidEndProcess:(MemoriaTask *)task {
+    
+    self.report.stopTime = [NSDate date];
+    self.report.completedCycles = _completedCycles;
     
     [self _disableSleepPrevention];
     
@@ -127,8 +132,9 @@ static os_log_t memtest_log;
         
         log = YES;
         
-        self.report.allocatedAmount = [[outputString componentsSeparatedByString:@"Allocated memory: "][1] componentsSeparatedByString:@"MB ("][0];
-        self.report.availableAmount = [[outputString componentsSeparatedByString:@"Available memory: "][1] componentsSeparatedByString:@"MB ("][0];
+        self.report.requestedAmount = [[outputString componentsSeparatedByString:@"Requested memory: "][1] componentsSeparatedByString:@"MB ("][0].integerValue;
+        self.report.allocatedAmount = [[outputString componentsSeparatedByString:@"Allocated memory: "][1] componentsSeparatedByString:@"MB ("][0].integerValue;
+        self.report.availableAmount = [[outputString componentsSeparatedByString:@"Available memory: "][1] componentsSeparatedByString:@"MB ("][0].integerValue;
         
     }
     
@@ -165,8 +171,8 @@ static os_log_t memtest_log;
         
         log = YES;
         
-        self.report.testResults = MemoriaReportResultSuccess;
-        self.report.memtestResults = @"All tests passed!";
+        self.report.testResult = MemoriaReportResultSuccess;
+        self.report.resultDescription = NSLocalizedString(@"All Tests Passed", nil);
         
         // update UI
         
@@ -180,10 +186,10 @@ static os_log_t memtest_log;
         
         // update ui
         
-        self.report.testResults = MemoriaReportResultFailure;
-        self.report.memtestResults = @"FAILURE!";
+        self.report.testResult = MemoriaReportResultFailure;
+        self.report.resultDescription = NSLocalizedString(@"Test Failed", nil);
         
-        os_log_error(memoria_log, "Failed: %@", self.report.memtestResults);
+        os_log_error(memoria_log, "Failed: %@", self.report.resultDescription);
         
     }
     
@@ -193,10 +199,10 @@ static os_log_t memtest_log;
         
         // update ui
         
-        self.report.testResults = MemoriaReportResultFailure;
-        self.report.memtestResults = @"*** Address Test Failed ***";
+        self.report.testResult = MemoriaReportResultFailure;
+        self.report.resultDescription = NSLocalizedString(@"Address Test Failed", nil);
         
-        os_log_error(memoria_log, "Failed: %@", self.report.memtestResults);
+        os_log_error(memoria_log, "Failed: %@", self.report.resultDescription);
         
     }
     
@@ -206,10 +212,10 @@ static os_log_t memtest_log;
         
         // update ui
         
-        self.report.testResults = MemoriaReportResultFailure;
-        self.report.memtestResults = @"*** Memory Test Failed ***";
+        self.report.testResult = MemoriaReportResultFailure;
+        self.report.resultDescription = NSLocalizedString(@"Memory Test Failed", nil);
         
-        os_log_error(memoria_log, "Failed: %@", self.report.memtestResults);
+        os_log_error(memoria_log, "Failed: %@", self.report.resultDescription);
         
     }
     
@@ -220,15 +226,19 @@ static os_log_t memtest_log;
         NSScanner *outputScanner = [NSScanner scannerWithString:outputString];
         NSMutableString *temp = [NSMutableString stringWithCapacity:1];
         
-        if ([outputScanner scanUpToString:@"seconds." intoString:&temp])
-            self.report.executionTime = [temp copy];
-
+        if ([outputScanner scanUpToString:@"seconds." intoString:&temp]) {
+            
+            self.report.executionTime = [temp componentsSeparatedByString:@" "][6].integerValue;
+            
+        }
+        
     }
+
     
     if (log) {
         
         os_log_info(memtest_log, "%@", outputString);
-        
+        [self.report addLogItem:outputString];
     }
     
 }
@@ -252,6 +262,7 @@ static os_log_t memtest_log;
         _progressList = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"progress_list" ofType:@"plist"]];
 
         _report = [[MemoriaReport alloc] init];
+        self.report.totalCycles = cycles;
         
     }
     

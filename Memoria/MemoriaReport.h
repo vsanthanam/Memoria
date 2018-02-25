@@ -10,25 +10,32 @@
 
 typedef NS_ENUM(NSInteger, MemoriaReportResult) {
     
-    MemoriaReportResultSuccess,
-    MemoriaReportResultFailure
+    MemoriaReportResultUnknown = 0,
+    MemoriaReportResultSuccess = 1,
+    MemoriaReportResultFailure = 2
     
 };
 
 @interface MemoriaReport : NSObject
 
-@property (assign) MemoriaReportResult testResults;
-@property (strong, nullable) NSString *memtestResults;
-@property (strong, nullable) NSString *availableAmount;
-@property (strong, nullable) NSString *builtInAmount;
-@property (strong, nullable) NSString *requestedAmount;
-@property (strong, nullable) NSString *allocatedAmount;
-@property (strong, nullable) NSString *totalCycles;
-@property (strong, nullable) NSString *completedCycles;
-@property (strong, nullable) NSString *executionTime;
-@property (strong, nullable) NSString *startTime;
-@property (strong, nullable) NSString *stopTime;
+@property (assign) MemoriaReportResult testResult;
+@property (strong, nullable) NSString *resultDescription;
+
+@property (assign) NSInteger availableAmount;
+@property (assign) NSInteger requestedAmount;
+@property (assign) NSInteger allocatedAmount;
+
+@property (strong, nullable) NSDate *startTime;
+@property (strong, nullable) NSDate *stopTime;
+@property (assign) NSInteger executionTime;
+
+@property (assign) NSInteger totalCycles;
+@property (assign) NSInteger completedCycles;
+
+@property (strong, nullable) NSArray<NSString *> *logItems;
 
 - (nullable NSAttributedString *)createReport;
+
+- (void)addLogItem:(nonnull NSString *)logItem;
 
 @end

@@ -79,6 +79,9 @@
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="reportTextView" destination="fBh-gj-EuC" id="ZLp-AV-B2d"/>
+                    </connections>
                 </viewController>
                 <customObject id="V3J-mm-Tcn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

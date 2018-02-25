@@ -173,7 +173,12 @@
 - (void)memoriaDidEnd:(Memoria *)memoria {
         
     [self _updateUI];
-    [self _showReport:memoria.report];
+    
+    if (memoria.report.testResult != MemoriaReportResultUnknown) {
+        
+        [self _showReport:memoria.report];
+        
+    }
     
 }
 
@@ -217,7 +222,7 @@
         self.progressBar.doubleValue = self.memoria.progress;
         self.cyclesLabel.stringValue = [NSString stringWithFormat:@"Running Cycle %li of %li", (long)self.memoria.completedCycles, (long)self.memoria.totalCycles];
         [self.progressIndicator startAnimation:nil];
-        self.startStopButton.stringValue = NSLocalizedString(@"Stop Test", nil);
+        self.startStopButton.title = NSLocalizedString(@"Stop Test", nil);
         
     } else {
         
@@ -225,7 +230,7 @@
         self.cyclesLabel.stringValue = @"";
         [self.progressIndicator stopAnimation:nil];
         self.statusLabel.stringValue = @"";
-        self.startStopButton.stringValue = NSLocalizedString(@"Start Test", nil);
+        self.startStopButton.title = NSLocalizedString(@"Start Test", nil);
         
     }
     
