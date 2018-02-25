@@ -100,6 +100,18 @@ static os_log_t memtest_log;
     
     [self _disableSleepPrevention];
     
+    if (self.report.testResult != MemoriaReportResultUnknown) {
+        
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = NSLocalizedString(@"Memory Test Complete", nil);
+        notification.subtitle = [NSString stringWithFormat:@"Test completed in %li seconds", self.report.executionTime];
+        notification.identifier = @"com.varunsanthanam.Memoria.MemTestNotification";
+        notification.soundName = NSUserNotificationDefaultSoundName;
+        
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        
+    }
+    
     if ([self.delegate respondsToSelector:@selector(memoriaDidEnd:)]) {
         
         [self.delegate memoriaDidEnd:self];
@@ -143,8 +155,6 @@ static os_log_t memtest_log;
         log = YES;
         _completedCycles++;
         os_log(memoria_log, "Test Sequence: %li", (NSInteger)_completedCycles);
-        
-        // update cycles count label.
         
     }
     
