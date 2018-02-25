@@ -6,12 +6,12 @@ Memoria is designed for the modern macOS runtime environment, and is built to be
 
 ## Requirements
 
-*macOS 10.13.x+ (Support for older versions coming soon)
+* macOS 10.13.x+ (Support for older versions coming soon)
 
 ## Features
 
-*Easy to use GUI for memtest with human readable console
-*Fullly verbose logs so you can see memtest's CLI outout
-*Apple Universal Logging w/ Console.app Support
-*Notification Center Support
-*Touch Bar Support
+* Easy to use GUI for memtest with human readable console
+* Fullly verbose logs so you can see memtest's CLI outout
+* Apple Universal Logging w/ Console.app Support
+* Notification Center Support
+* Touch Bar Support
