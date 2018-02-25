@@ -13,9 +13,3 @@ os_log_t memoria_log_create(const char *category) {
     return os_log_create(memoria_log_subsystem, category);
     
 }
-
-os_log_t memoria_log(void) {
-    
-    return memoria_log_create("Memoria");
-    
-}

@@ -166,22 +166,22 @@
 
 - (void)memoriaDidStart:(Memoria *)memoria {
     
-    [self.progressIndicator startAnimation:nil];
+    [self _updateUI];
     
 }
 
 - (void)memoriaDidEnd:(Memoria *)memoria {
     
-    [self.progressIndicator stopAnimation:nil];
+    [self _updateUI];
+    [self _showReport:memoria.report];
     
 }
 
 - (void)memoria:(Memoria *)memoria didStartTest:(NSString *)test {
     
-    [self _setStatusLabelText:test];
+    self.statusLabel.stringValue = test;
     self.progressBar.doubleValue = memoria.progress;
-    
-    self.cyclesLabel.stringValue = [NSString stringWithFormat:@"Running Cycle %li of %li", (long)memoria.completedCycles, (long)memoria.totalCycles];
+    [self _updateUI];
     
 }
 
@@ -191,8 +191,7 @@
     
     [self _setUpMemoryInfoTableView];
     [self _setUpProgressBar];
-    [self _setUpStatusLabel];
-    [self _setUpCyclesLabel];
+    [self _updateUI];
     
 }
 
@@ -211,15 +210,24 @@
     
 }
 
-- (void)_setUpStatusLabel {
+- (void)_updateUI {
     
-    [self _setStatusLabelText:@""];
-    
-}
-
-- (void)_setUpCyclesLabel {
-    
-    self.cyclesLabel.stringValue = @"";
+    if (self.memoria.running) {
+        
+        self.progressBar.doubleValue = self.memoria.progress;
+        self.cyclesLabel.stringValue = [NSString stringWithFormat:@"Running Cycle %li of %li", (long)self.memoria.completedCycles, (long)self.memoria.totalCycles];
+        [self.progressIndicator startAnimation:nil];
+        self.startStopButton.stringValue = NSLocalizedString(@"Stop Test", nil);
+        
+    } else {
+        
+        self.progressBar.doubleValue = 0.0f;
+        self.cyclesLabel.stringValue = @"";
+        [self.progressIndicator stopAnimation:nil];
+        self.statusLabel.stringValue = @"";
+        self.startStopButton.stringValue = NSLocalizedString(@"Start Test", nil);
+        
+    }
     
 }
 
@@ -264,12 +272,6 @@
 - (void)_stopTest {
     
     [self.memoria stop];
-    
-}
-
-- (void)_setStatusLabelText:(NSString *)text {
-    
-    self.statusLabel.stringValue = text;
     
 }
 

@@ -17,5 +17,3 @@
 #define memoria_log_subsystem "com.varunsanthanam.Memoria"
 
 os_log_t memoria_log_create(const char *category);
-
-os_log_t memoria_log(void);

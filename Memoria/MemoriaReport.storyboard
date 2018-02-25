@@ -31,11 +31,11 @@
             <objects>
                 <viewController id="Siq-eM-LqF" customClass="MemoriaReportViewController" sceneMemberID="viewController">
                     <view key="view" id="q8B-fH-ngx">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="522"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="563"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-Xo-Pyh">
-                                <rect key="frame" x="20" y="20" width="440" height="482"/>
+                                <rect key="frame" x="20" y="61" width="440" height="482"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" id="Ouj-v1-yWt">
                                     <rect key="frame" x="1" y="1" width="438" height="480"/>
@@ -61,12 +61,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dm0-Oh-psO">
+                                <rect key="frame" x="11" y="13" width="87" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Discard" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wZO-DM-VLG">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMM-Jd-imU">
+                                <rect key="frame" x="396" y="13" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xyw-ap-hdh">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="V3J-mm-Tcn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-157" y="691"/>
+            <point key="canvasLocation" x="-157" y="711.5"/>
         </scene>
     </scenes>
 </document>

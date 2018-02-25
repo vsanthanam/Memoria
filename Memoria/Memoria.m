@@ -35,12 +35,14 @@
 @synthesize completedCycles = _completedCycles;
 @synthesize report = _report;
 
+static os_log_t memoria_log;
 static os_log_t memtest_log;
 
 #pragma mark - Overridden Class Methods
 
 + (void)initialize {
     
+    memoria_log = memoria_log_create("Memoria");
     memtest_log = memoria_log_create("memtest");
     
 }
@@ -134,7 +136,7 @@ static os_log_t memtest_log;
         
         log = YES;
         _completedCycles++;
-        os_log(memoria_log(), "Test Sequence: %li", (NSInteger)_completedCycles);
+        os_log(memoria_log, "Test Sequence: %li", (NSInteger)_completedCycles);
         
         // update cycles count label.
         
@@ -153,7 +155,7 @@ static os_log_t memtest_log;
                 
             }
             
-            os_log(memoria_log(), "Running Test: %@", test);
+            os_log(memoria_log, "Running Test: %@", test);
             
         }
         
@@ -168,7 +170,7 @@ static os_log_t memtest_log;
         
         // update UI
         
-        os_log(memoria_log(), "Tests Passed!");
+        os_log(memoria_log, "Tests Passed!");
         
     }
     
@@ -181,7 +183,7 @@ static os_log_t memtest_log;
         self.report.testResults = MemoriaReportResultFailure;
         self.report.memtestResults = @"FAILURE!";
         
-        os_log_error(memoria_log(), "Failed: %@", self.report.memtestResults);
+        os_log_error(memoria_log, "Failed: %@", self.report.memtestResults);
         
     }
     
@@ -194,7 +196,7 @@ static os_log_t memtest_log;
         self.report.testResults = MemoriaReportResultFailure;
         self.report.memtestResults = @"*** Address Test Failed ***";
         
-        os_log_error(memoria_log(), "Failed: %@", self.report.memtestResults);
+        os_log_error(memoria_log, "Failed: %@", self.report.memtestResults);
         
     }
     
@@ -207,7 +209,7 @@ static os_log_t memtest_log;
         self.report.testResults = MemoriaReportResultFailure;
         self.report.memtestResults = @"*** Memory Test Failed ***";
         
-        os_log_error(memoria_log(), "Failed: %@", self.report.memtestResults);
+        os_log_error(memoria_log, "Failed: %@", self.report.memtestResults);
         
     }
     
