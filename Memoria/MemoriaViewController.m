@@ -13,7 +13,7 @@
 #import "Memoria.h"
 #import "MemoriaReportViewController.h"
 
-@interface MemoriaViewController ()<MemoryInfoManagerDelegate, NSTableViewDelegate, NSTableViewDataSource, MemoriaDelegate>
+@interface MemoriaViewController ()<MemoryInfoManagerDelegate, MemoriaDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTouchBarDelegate>
 
 @property (weak) IBOutlet NSTableView *memoryInfoTableView;
 @property (weak) IBOutlet NSTextField *amounTextField;
@@ -25,6 +25,7 @@
 @property (weak) IBOutlet NSButton *startStopButton;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 @property (weak) IBOutlet NSTextField *statusLabel;
+@property (weak) IBOutlet NSButton *touchBarStartStop;
 
 @property (strong, readonly) MemoryInfoManager *memoryInfoManager;
 @property (strong) NSArray<MemoryInfo *> *memoryInfo;
@@ -223,6 +224,7 @@
         self.cyclesLabel.stringValue = [NSString stringWithFormat:@"Running Cycle %li of %li", (long)self.memoria.completedCycles, (long)self.memoria.totalCycles];
         [self.progressIndicator startAnimation:nil];
         self.startStopButton.title = NSLocalizedString(@"Stop Test", nil);
+        self.touchBarStartStop.title = NSLocalizedString(@"Stop Test", nil);
         
     } else {
         
@@ -231,6 +233,7 @@
         [self.progressIndicator stopAnimation:nil];
         self.statusLabel.stringValue = @"";
         self.startStopButton.title = NSLocalizedString(@"Start Test", nil);
+        self.touchBarStartStop.title = NSLocalizedString(@"Start Test", nil);
         
     }
     

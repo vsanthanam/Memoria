@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="13752"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" message="Use a version of macOS with Touch Bar support." minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -679,7 +681,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="76" y="-123"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -1045,6 +1047,28 @@
                             <constraint firstItem="hyW-Yq-wEa" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="nrl-8d-UJA"/>
                         </constraints>
                     </view>
+                    <touchBar key="touchBar" id="Hp5-EH-Nxe">
+                        <touchBarItems>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="i8f-xt-7LV"/>
+                            <touchBarItem id="Kip-HT-gzv">
+                                <viewController key="viewController" id="p5o-Nk-Zov">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FLz-hw-9M1">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="saC-hb-CDI">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="userStartStopTest:" target="XfG-lQ-9wD" id="ZeQ-Ye-qDi"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="78" height="30"/>
+                            </touchBarItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="gr3-SV-kyJ"/>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
                         <outlet property="allMemoryCheckBox" destination="kc0-Vo-ZtN" id="7ke-Nc-exy"/>
                         <outlet property="amounTextField" destination="moc-iS-ZXC" id="ejb-Xs-Dif"/>
@@ -1056,6 +1080,7 @@
                         <outlet property="progressIndicator" destination="3Rw-5P-Omv" id="3kq-Bo-akM"/>
                         <outlet property="startStopButton" destination="cfD-2T-36J" id="gMX-rx-9Kc"/>
                         <outlet property="statusLabel" destination="BX2-ag-3ml" id="osy-MH-TMc"/>
+                        <outlet property="touchBarStartStop" destination="FLz-hw-9M1" id="4Im-Ye-gSH"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

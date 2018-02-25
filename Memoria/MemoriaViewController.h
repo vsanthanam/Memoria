@@ -8,8 +8,6 @@
 
 @import Cocoa;
 
-#import "MemoriaTask.h"
-
-@interface MemoriaViewController : NSViewController<MemoriaTaskDelegate>
+@interface MemoriaViewController : NSViewController
 
 @end
