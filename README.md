@@ -15,3 +15,7 @@ Memoria is designed for the modern macOS runtime environment, and is built to be
 * Apple Universal Logging w/ Console.app Support
 * Notification Center Support
 * Touch Bar Support
+
+## Download
+
+* Get the latest stable release [here](https://github.com/vsanthanam/Memoria/releases/latest)
