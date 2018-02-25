@@ -64,25 +64,14 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dm0-Oh-psO">
-                                <rect key="frame" x="14" y="13" width="87" height="32"/>
+                                <rect key="frame" x="545" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Discard" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wZO-DM-VLG">
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wZO-DM-VLG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="userDiscard:" target="Siq-eM-LqF" id="hyG-NJ-Cql"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMM-Jd-imU">
-                                <rect key="frame" x="556" y="13" width="70" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xyw-ap-hdh">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="userSave:" target="Siq-eM-LqF" id="a61-AV-Oye"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,29 +82,14 @@
                             <touchBarItem id="nvf-Be-pt7">
                                 <viewController key="viewController" id="bzI-Ho-cej">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EMF-dZ-jQq">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Discard" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Idb-Nj-f7Y">
+                                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Idb-Nj-f7Y">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" usesAppearanceFont="YES"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="userDiscard:" target="Siq-eM-LqF" id="1Ta-6Q-HWs"/>
-                                        </connections>
-                                    </button>
-                                </viewController>
-                            </touchBarItem>
-                            <touchBarItem id="YC6-hb-46g">
-                                <viewController key="viewController" id="uDD-st-WhG">
-                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VZm-6w-fhE">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="djJ-e4-nZ7">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="userSave:" target="Siq-eM-LqF" id="20s-Xz-dcf"/>
                                         </connections>
                                     </button>
                                 </viewController>
