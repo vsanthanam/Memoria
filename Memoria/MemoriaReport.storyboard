@@ -68,6 +68,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="userDiscard:" target="Siq-eM-LqF" id="hyG-NJ-Cql"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMM-Jd-imU">
                                 <rect key="frame" x="556" y="13" width="70" height="32"/>
@@ -76,6 +79,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="userSave:" target="Siq-eM-LqF" id="a61-AV-Oye"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>

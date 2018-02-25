@@ -24,4 +24,19 @@
     
 }
 
+- (IBAction)userSave:(id)sender {
+    
+//    NSSavePanel *savePanel = [NSSavePanel savePanel];
+//
+//    [savePanel beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse response) {
+//
+//    }];
+    
+}
+
+- (IBAction)userDiscard:(id)sender {
+    
+    [self.view.window.sheetParent endSheet:self.view.window];
+    
+}
 @end
