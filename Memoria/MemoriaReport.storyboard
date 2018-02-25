@@ -12,7 +12,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="0lG-mT-j48">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="310" width="480" height="270"/>
+                        <rect key="contentRect" x="245" y="310" width="640" height="640"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
                         <connections>
                             <outlet property="delegate" destination="c84-FG-Vfq" id="1Pw-1W-TmU"/>
@@ -31,22 +31,22 @@
             <objects>
                 <viewController id="Siq-eM-LqF" customClass="MemoriaReportViewController" sceneMemberID="viewController">
                     <view key="view" id="q8B-fH-ngx">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="563"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-Xo-Pyh">
-                                <rect key="frame" x="20" y="61" width="440" height="482"/>
+                                <rect key="frame" x="20" y="61" width="600" height="559"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" id="Ouj-v1-yWt">
-                                    <rect key="frame" x="1" y="1" width="438" height="480"/>
+                                    <rect key="frame" x="1" y="1" width="598" height="557"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="fBh-gj-EuC">
-                                            <rect key="frame" x="0.0" y="0.0" width="438" height="480"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="598" height="557"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="438" height="480"/>
-                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <size key="minSize" width="598" height="557"/>
+                                            <size key="maxSize" width="603" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
                                     </subviews>
@@ -57,12 +57,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="2HR-ay-Vzb">
-                                    <rect key="frame" x="423" y="1" width="16" height="480"/>
+                                    <rect key="frame" x="583" y="1" width="16" height="557"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dm0-Oh-psO">
-                                <rect key="frame" x="11" y="13" width="87" height="32"/>
+                                <rect key="frame" x="14" y="13" width="87" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Discard" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wZO-DM-VLG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -70,7 +70,7 @@
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMM-Jd-imU">
-                                <rect key="frame" x="396" y="13" width="70" height="32"/>
+                                <rect key="frame" x="556" y="13" width="70" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xyw-ap-hdh">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -85,7 +85,7 @@
                 </viewController>
                 <customObject id="V3J-mm-Tcn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-157" y="711.5"/>
+            <point key="canvasLocation" x="-157" y="900"/>
         </scene>
     </scenes>
 </document>
