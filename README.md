@@ -19,3 +19,7 @@ Memoria is designed for the modern macOS runtime environment, and is built to be
 ## Download
 
 * Get the latest stable release [here](https://github.com/vsanthanam/Memoria/releases/latest)
+
+## Contact Me
+
+* Take a look at my [website](https://www.vsanthanam.com)
